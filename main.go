@@ -64,7 +64,7 @@ func (db *DbConn) SignUp(w http.ResponseWriter, r *http.Request){
 	Users.Signup(w, r, db.Db)
 }
 
-//Admin Route
+// Admin Route
 func (db *DbConn) CreateTask(w http.ResponseWriter, r *http.Request){
 	Task.CreateTask(w, r, db.Db)
 }
