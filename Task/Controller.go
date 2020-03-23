@@ -8,7 +8,7 @@ import (
 )
 
 func CreateTask (w http.ResponseWriter, r *http.Request, db *gorm.DB){
-	task:= &Task_Model{}
+	var task Task_Model
 
 	err:= json.NewDecoder(r.Body).Decode(&task)
 
@@ -16,7 +16,9 @@ func CreateTask (w http.ResponseWriter, r *http.Request, db *gorm.DB){
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
+
 	db.Create(&task)
+
 }
 
 func ModifyTaskDescription (w http.ResponseWriter, r *http.Request, db *gorm.DB) {
